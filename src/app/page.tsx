@@ -1,13 +1,16 @@
-import Image from "next/image";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@radix-ui/react-accordion";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -22,7 +25,34 @@ export default function Home() {
               height="100"
             />
           </li>
-          <li>주요사업</li>
+          <li>
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>주요사업</AccordionTrigger>
+                <AccordionContent>
+                  <ul className="font-semibold text-sm py-2 *:py-2">
+                    <li className="hover:opacity-50 transition-opacity">
+                      사업소개
+                    </li>
+                    <li className="hover:opacity-50 transition-opacity">
+                      지방교육행정기관
+                      <br />
+                      재정투자사업 <br />
+                      투자심사 지원 관리
+                    </li>
+                    <li className="hover:opacity-50 transition-opacity">
+                      교육행정기관 컨설팅
+                      <br />및 시스템 운영관리
+                    </li>
+                    <li className="hover:opacity-50 transition-opacity">
+                      지방교육행정기관 <br />
+                      타당성조사
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </li>
           <li>KILEF 소식</li>
           <li>정보자료</li>
           <li>KILEF 소개</li>
