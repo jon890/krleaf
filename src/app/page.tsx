@@ -269,6 +269,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TODO */}
+      {/* <div className="bg-[#F4F7FF] absolute bottom-0 w-screen h-[900px] -z-10"></div> */}
+
       <section className="w-full container mt-20 flex flex-row gap-5">
         <article className="flex-1">
           <div>
@@ -352,6 +355,42 @@ export default function Home() {
             </div>
           </div>
         </article>
+      </section>
+
+      <section className="w-full container mt-20">
+        <div className="max-w-[800px] w-full mx-auto">
+          <h2 className={cn("text-5xl ", FONT_ONETWOTHREE_RF.className)}>
+            <strong className="text-krflea_text_primary">KRFLEA</strong>는
+            모두가 만족하고 모두가 행복한 대한민국 교육의 지도를 만들어갑니다.
+          </h2>
+        </div>
+
+        <div className="mt-16 flex flex-row gap-6">
+          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+            <span className="size-24 rounded-full bg-white p-1 inline-block relative">
+              <Image src="/images/icons/icon_map.png" fill alt="map" />
+            </span>
+            <span className="font-bold text-xl text-[#333333]">
+              학구도 안내서비스
+            </span>
+          </div>
+          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+            <span className="size-24 rounded-full bg-white p-1 inline-block relative">
+              <Image src="/images/icons/icon_map2.png" fill alt="map" />
+            </span>
+            <span className="font-bold text-xl text-[#333333]">
+              학구도 안내서비스
+            </span>
+          </div>
+          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+            <span className="size-24 rounded-full bg-white p-1 inline-block relative">
+              <Image src="/images/icons/icon_map3.png" fill alt="map" />
+            </span>
+            <span className="font-bold text-xl text-[#333333]">
+              학구도 안내서비스
+            </span>
+          </div>
+        </div>
       </section>
     </main>
   );

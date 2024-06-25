@@ -7,7 +7,7 @@ export default function NavBar() {
   return (
     <nav
       className={cn(
-        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center",
+        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center z-10",
         FONT_PRETENDARD.className
       )}
     >
