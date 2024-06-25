@@ -392,6 +392,67 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="w-full container mt-20 py-7">
+        <div className="w-full flex flex-row gap-20">
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+          <Image
+            className="flex-1"
+            src="/images/logo/business_logo1.png"
+            width="0"
+            height="48"
+            sizes="100vw"
+            alt="business_logo"
+          />
+        </div>
+      </section>
     </main>
   );
 }
