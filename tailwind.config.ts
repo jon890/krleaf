@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      // backgroundImage: {
+      //   "bg-main1": "url('/images/background/bg_main1.png')",
+      // },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
