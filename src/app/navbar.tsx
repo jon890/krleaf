@@ -1,9 +1,16 @@
+import { FONT_PRETENDARD } from "@/lib/font-util";
+import { cn } from "@/lib/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export default function NavBar() {
   return (
-    <nav className="w-full text-black font-bold h-[100px] flex flex-row items-center justify-center">
+    <nav
+      className={cn(
+        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center",
+        FONT_PRETENDARD.className
+      )}
+    >
       <div className="flex-none mr-24">
         <Image src="/images/logo.png" alt="logo" width="259" height="39" />
       </div>
