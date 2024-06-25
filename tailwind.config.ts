@@ -22,6 +22,9 @@ const config = {
       //   "bg-main1": "url('/images/background/bg_main1.png')",
       // },
       colors: {
+        krflea_box_border: "#DDDDDD",
+        krflea_text_disabled: "#AAAAAA",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
