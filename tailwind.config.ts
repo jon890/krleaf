@@ -24,6 +24,7 @@ const config = {
       colors: {
         krflea_box_border: "#DDDDDD",
         krflea_text_disabled: "#AAAAAA",
+        krflea_text_primary: "#2F5BC1",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
