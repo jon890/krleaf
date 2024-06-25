@@ -268,6 +268,91 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="w-full container mt-20 flex flex-row gap-5">
+        <article className="flex-1">
+          <div>
+            <span className="font-bold text-4xl">
+              <strong className="text-krflea_text_primary">소셜</strong>미디어
+            </span>
+          </div>
+
+          <div className="mt-7">
+            <iframe
+              className="w-full"
+              height="300"
+              src="https://www.youtube.com/embed/PZkPJG00dzU"
+              title="지방교육재정연구원 홍보 동영상"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </article>
+
+        <article className="flex-1">
+          <div>
+            <span className="font-bold text-4xl">
+              <strong className="text-krflea_text_primary">KRFLEA</strong>갤러리
+            </span>
+          </div>
+
+          <div className="mt-7 flex flex-row gap-3 h-[300px]">
+            <div className="flex-1 bg-[url('/images/gallery/gallery1.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+              <div className="mx-6 mb-5">
+                <h3 className="text-base font-bold">
+                  2024년 학생배치 · 학교설립 담당자 협의회
+                </h3>
+                <div className="flex flex-row gap-1 mt-1 items-center">
+                  <Image
+                    className="flex-none h-[10px]"
+                    src="/images/icons/icon_clock.png"
+                    width="10"
+                    height="10"
+                    alt="clock"
+                  />
+                  <span className="font-medium text-sm">2024.06.25</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 bg-[url('/images/gallery/gallery2.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+              <div className="mx-6 mb-5">
+                <h3 className="text-base font-bold">
+                  2024년 학생배치 · 학교설립 담당자 협의회
+                </h3>
+                <div className="flex flex-row gap-1 mt-1 items-center">
+                  <Image
+                    className="flex-none h-[10px]"
+                    src="/images/icons/icon_clock.png"
+                    width="10"
+                    height="10"
+                    alt="clock"
+                  />
+                  <span className="font-medium text-sm">2024.06.25</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 bg-[url('/images/gallery/gallery3.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+              <div className="mx-6 mb-5">
+                <h3 className="text-base font-bold">
+                  2024년 학생배치 · 학교설립 담당자 협의회
+                </h3>
+                <div className="flex flex-row gap-1 mt-1 items-center">
+                  <Image
+                    className="flex-none h-[10px]"
+                    src="/images/icons/icon_clock.png"
+                    width="10"
+                    height="10"
+                    alt="clock"
+                  />
+                  <span className="font-medium text-sm">2024.06.25</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
     </main>
   );
 }
