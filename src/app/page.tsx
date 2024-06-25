@@ -8,10 +8,10 @@ export default function Home() {
     <main className="h-screen w-screen flex flex-col">
       <NavBar />
 
-      <div className="bg-[url('/images/background/bg_main1.png')] h-[1000px] bg-no-repeat bg-cover flex flex-col justify-center items-center">
+      <div className="bg-[url('/images/background/bg_main1.png')] h-[1000px] bg-no-repeat bg-cover">
         <div
           className={cn(
-            "container flex flex-col items-end",
+            "container flex flex-col items-end h-[1000px] justify-center",
             FONT_ONETWOTHREE_RF.className
           )}
         >
