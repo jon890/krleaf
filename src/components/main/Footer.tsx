@@ -13,7 +13,7 @@ export default function Footer() {
             className="max-w-[200px] xl:max-w-[338px]"
           />
 
-          <div className="flex flex-row text-white text-base gap-[10px]">
+          <div className="flex xl:flex-row text-white text-base gap-[10px] flex-col">
             <div className="bg-krflea_text_primary rounded-3xl px-5 py-3 text-xs xl:text-base">
               개인정보처리방침
             </div>
@@ -32,13 +32,17 @@ export default function Footer() {
         <div className="h-[1px] bg-white bg-opacity-30 my-8"></div>
 
         <div className="flex flex-col">
-          <p className="text-base text-[#A0A8C2]">
+          <p className="text-sm xl:text-base text-[#A0A8C2]">
             (30130) 세종특별자치시 한누리대로 193, 참미르빌딩 8층
             한국지방교육행정연구재단
           </p>
-          <p className="text-base text-[#A0A8C2]">FAX : 044-550-5299</p>
-          <p className="text-base text-[#A0A8C2]">Email : kilef@cju.ac.kr</p>
-          <p className="mt-4 text-base text-[#677195]">
+          <p className="text-sm xl:text-base text-[#A0A8C2]">
+            FAX : 044-550-5299
+          </p>
+          <p className="text-sm xl:text-base text-[#A0A8C2]">
+            Email : kilef@cju.ac.kr
+          </p>
+          <p className="mt-4 text-sm xl:text-base text-[#677195]">
             Copyright 2024 KRFLEA All Rights Reserved.
           </p>
         </div>

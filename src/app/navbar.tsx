@@ -13,7 +13,7 @@ export default function NavBar() {
       )}
     >
       <Link
-        className="flex-none mr-24 md:mr-12 relative w-[18vw] h-[40px] max-w-[250px] min-w-[200px]"
+        className="flex-none mr-auto relative w-[18vw] h-[40px] max-w-[250px] min-w-[200px]"
         href="/"
       >
         <Image src="/images/logo.png" alt="logo" fill sizes="18vw" priority />
@@ -35,7 +35,7 @@ export default function NavBar() {
         />
       </div>
 
-      <div className="ml-16 xl:ml-6 border-[#BBBBBB] border-2 rounded-2xl p-2 cursor-pointer">
+      <div className="ml-0 xl:ml-6 border-[#BBBBBB] border-2 rounded-2xl p-2 cursor-pointer">
         <Image
           src="/images/icons/icon_sitemap.png"
           width="34"

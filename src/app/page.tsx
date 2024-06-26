@@ -8,20 +8,22 @@ import Footer from "@/components/main/Footer";
 
 export default function Home() {
   return (
-    <main className="w-screen flex flex-col">
+    <main className="w-screen flex flex-col relative">
       <NavBar />
 
-      <div className="w-full bg-[url('/images/background/bg_main1.png')] bg-center bg-no-repeat bg-cover aspect-square">
+      <div className="w-full bg-[url('/images/background/bg_main1.png')] bg-center bg-no-repeat bg-cover h-screen">
         <div
           className={cn(
             "container flex flex-col items-end h-full justify-center",
             FONT_ONETWOTHREE_RF.className
           )}
         >
-          <h1 className="text-[#2F5BC1] text-6xl">KRFLEA</h1>
-          <h1 className="text-6xl mb-6">한국지방교육행정연구재단</h1>
+          <h1 className="text-[#2F5BC1] xl:text-6xl text-3xl">KRFLEA</h1>
+          <h1 className="xl:text-6xl text-3xl mb-6">
+            한국지방교육행정연구재단
+          </h1>
 
-          <h2 className="text-2xl">
+          <h2 className="xl:text-2xl text-base">
             안정적 교육환경의 토대를 마련하고 건전하고
             <br /> 생산적인 교육재정 운영에 기여합니다.
           </h2>
@@ -34,10 +36,10 @@ export default function Home() {
       {/* TODO */}
       {/* <div className="bg-[#F4F7FF] absolute bottom-0 w-screen h-[900px] -z-10"></div> */}
 
-      <section className="container mt-20 flex xl:flex-row gap-5 flex-col px-4">
+      <section className="container mt-20 flex xl:flex-row xl:gap-5 flex-col px-4 gap-10">
         <article className="flex-1">
           <div>
-            <span className="font-bold text-4xl">
+            <span className="font-bold xl:text-4xl text-2xl">
               <strong className="text-krflea_text_primary">소셜</strong>미디어
             </span>
           </div>
@@ -58,13 +60,13 @@ export default function Home() {
 
         <article className="flex-1">
           <div>
-            <span className="font-bold text-4xl">
+            <span className="font-bold text-2xl xl:text-4xl">
               <strong className="text-krflea_text_primary">KRFLEA</strong>갤러리
             </span>
           </div>
 
-          <div className="mt-7 flex flex-row gap-3 h-[300px]">
-            <div className="flex-1 bg-[url('/images/gallery/gallery1.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+          <div className="mt-7 flex xl:flex-row flex-col gap-3 xl:h-[300px]">
+            <div className="flex-1 bg-[url('/images/gallery/gallery1.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -81,7 +83,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-[url('/images/gallery/gallery2.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+
+            <div className="flex-1 bg-[url('/images/gallery/gallery2.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -98,7 +101,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-[url('/images/gallery/gallery3.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white">
+
+            <div className="flex-1 bg-[url('/images/gallery/gallery3.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -119,9 +123,14 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="container mt-20">
+      <section className="container mt-20 px-4">
         <div className="max-w-[600px] lg:max-w-[800px] w-full mx-auto">
-          <h2 className={cn("text-5xl ", FONT_ONETWOTHREE_RF.className)}>
+          <h2
+            className={cn(
+              "text-2xl xl:text-5xl ",
+              FONT_ONETWOTHREE_RF.className
+            )}
+          >
             <strong className="text-krflea_text_primary">KRFLEA</strong>는
             모두가 만족하고 모두가 행복한 대한민국 교육의 지도를 만들어갑니다.
           </h2>
