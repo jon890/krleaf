@@ -8,7 +8,7 @@ export default function NavBar() {
   return (
     <nav
       className={cn(
-        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center z-10 bg-white bg-opacity-50 backdrop-blur",
+        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center z-10 bg-white bg-opacity-50 backdrop-blur px-4",
         FONT_PRETENDARD.className
       )}
     >
@@ -35,7 +35,7 @@ export default function NavBar() {
         />
       </div>
 
-      <div className="ml-0 xl:ml-6 border-[#BBBBBB] border-2 rounded-2xl p-2 cursor-pointer">
+      <div className="ml-6 border-[#BBBBBB] border-2 rounded-2xl p-2 cursor-pointer">
         <Image
           src="/images/icons/icon_sitemap.png"
           width="34"
