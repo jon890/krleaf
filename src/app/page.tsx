@@ -1,35 +1,17 @@
-import { cn } from "@/lib/utils";
-import NavBar from "./navbar";
-import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
-import Image from "next/image";
+import Footer from "@/components/main/Footer";
 import MainBoard from "@/components/main/MainBoard";
 import MainBusiness from "@/components/main/MainBusiness";
-import Footer from "@/components/main/Footer";
+import MainCarousel from "@/components/main/MainCarousel";
+import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import NavBar from "./navbar";
 
 export default function Home() {
   return (
     <main className="w-screen flex flex-col relative">
       <NavBar />
-
-      <div className="w-full bg-[url('/images/background/bg_main1.png')] bg-center bg-no-repeat bg-cover h-screen">
-        <div
-          className={cn(
-            "container flex flex-col items-end h-full justify-center",
-            FONT_ONETWOTHREE_RF.className
-          )}
-        >
-          <h1 className="text-[#2F5BC1] xl:text-6xl text-3xl">KRFLEA</h1>
-          <h1 className="xl:text-6xl text-3xl mb-6">
-            한국지방교육행정연구재단
-          </h1>
-
-          <h2 className="xl:text-2xl text-base">
-            안정적 교육환경의 토대를 마련하고 건전하고
-            <br /> 생산적인 교육재정 운영에 기여합니다.
-          </h2>
-        </div>
-      </div>
-
+      <MainCarousel />
       <MainBoard />
       <MainBusiness />
 
