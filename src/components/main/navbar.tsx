@@ -4,6 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarLogo from "./navbar-logo";
+import MobileMenu from "./mobile-menu";
 
 export default function NavBar() {
   return (
@@ -61,18 +62,7 @@ export default function NavBar() {
         />
       </div>
 
-      <button
-        className="ml-6 sm:ml-12 border-[#BBBBBB] border-2 rounded-2xl p-2 cursor-pointer
-      group"
-      >
-        <Image
-          src="/images/icons/icon_sitemap.png"
-          width="34"
-          height="34"
-          alt="icon_sitemap"
-          className="group-hover:opacity-50 group-active:opacity-50 transition-opacity"
-        />
-      </button>
+      <MobileMenu />
     </nav>
   );
 }

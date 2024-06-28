@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      listStyleType: {
+        square: "square",
+      },
       // backgroundImage: {
       //   "bg-main1": "url('/images/background/bg_main1.png')",
       // },
