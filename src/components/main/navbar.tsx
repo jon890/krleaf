@@ -3,22 +3,19 @@ import { cn } from "@/lib/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
+import NavbarLogo from "./navbar-logo";
 
 export default function NavBar() {
   return (
     <nav
       className={cn(
-        "top-0 fixed w-full text-black font-bold h-[100px] flex flex-row items-center justify-center z-10 bg-white bg-opacity-50 backdrop-blur px-4",
+        "top-0 fixed w-full text-black font-bold flex flex-row items-center justify-center z-10 backdrop-blur",
+        "pc lg:h-[100px] lg:bg-white lg:bg-opacity-50 lg:px-4",
+        "mobile h-[80px] px-5",
         FONT_PRETENDARD.className
       )}
     >
-      <Link
-        className="flex-none mr-auto relative w-[18vw] h-[40px] max-w-[250px] min-w-[200px]
-        hover:opacity-50 active:opacity-50 transition-opacity"
-        href="/"
-      >
-        <Image src="/images/logo.png" alt="logo" fill sizes="18vw" priority />
-      </Link>
+      <NavbarLogo />
 
       <ul className="flex-row gap-16 justify-center text-xl md:text-base hidden md:flex">
         <li>
