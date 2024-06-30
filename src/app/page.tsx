@@ -1,4 +1,3 @@
-import Footer from "@/components/main/Footer";
 import MainBoard from "@/components/main/MainBoard";
 import MainBusiness from "@/components/main/MainBusiness";
 import MainCarousel from "@/components/main/MainCarousel";
