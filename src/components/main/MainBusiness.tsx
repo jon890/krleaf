@@ -3,7 +3,9 @@ import Image from "next/image";
 
 export default function MainBusiness() {
   return (
-    <section className={cn("container px-4", "pc lg:mt-20", "mobile mt-14")}>
+    <section
+      className={cn("container px-4", "pc lg:mt-20", "mobile mt-14 relative")}
+    >
       <div
         className={cn(
           "flex flex-row items-end gap-5",
@@ -158,6 +160,8 @@ export default function MainBusiness() {
           <h3 className="text-white text-2xl font-bold">타당성 조사</h3>
         </div>
       </div>
+
+      <div className="lg:hidden bg-[#F4F7FF] absolute bottom-0 w-full h-2/3 -z-10 left-0"></div>
     </section>
   );
 }

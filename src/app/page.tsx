@@ -15,26 +15,23 @@ export default function Home() {
       <MainBoard />
       <MainBusiness />
 
-      {/* TODO */}
-      {/* <div className="bg-[#F4F7FF] absolute bottom-0 w-screen h-[900px] -z-10"></div> */}
-
       <section
         className={cn(
-          "container flex px-4",
-          "pc lg:flex-row lg:gap-5 lg:mt-20",
-          "mobile flex-col gap-10 mt-15"
+          "container flex px-4 relative",
+          "pc lg:flex-row lg:gap-5 lg:pt-20",
+          "mobile flex-col gap-10 pt-14"
         )}
       >
         <article className="flex-1">
-          <div>
+          <div className="text-center lg:text-start">
             <span
-              className={cn("font-bold", "pc xl:text-4xl", "mobile text-2xl")}
+              className={cn("font-bold", "pc lg:text-4xl", "mobile text-3xl")}
             >
               <strong className="text-krflea_text_primary">소셜</strong>미디어
             </span>
           </div>
 
-          <div className="mt-7">
+          <div className="mt-5">
             <iframe
               className="w-full"
               height="300"
@@ -49,14 +46,28 @@ export default function Home() {
         </article>
 
         <article className="flex-1">
-          <div>
-            <span className="font-bold text-2xl xl:text-4xl">
+          <div className="text-center lg:text-start">
+            <span
+              className={cn("font-bold", "pc lg:text-4xl", "mobile text-3xl")}
+            >
               <strong className="text-krflea_text_primary">KRFLEA</strong>갤러리
             </span>
           </div>
 
-          <div className="mt-7 flex xl:flex-row flex-col gap-3 xl:h-[300px]">
-            <div className="flex-1 bg-[url('/images/gallery/gallery1.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
+          <div
+            className={cn(
+              "mt-5 flex gap-3",
+              "pc lg:flex-row",
+              "mobile flex-col"
+            )}
+          >
+            <div
+              className={cn(
+                "flex-1 bg-[url('/images/gallery/gallery1.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white",
+                "pc",
+                "mobile aspect-[2/1]"
+              )}
+            >
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -74,7 +85,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 bg-[url('/images/gallery/gallery2.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
+            <div
+              className={cn(
+                "flex-1 bg-[url('/images/gallery/gallery2.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white",
+                "pc",
+                "mobile aspect-[2/1]"
+              )}
+            >
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -92,7 +109,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-1 bg-[url('/images/gallery/gallery3.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white py-10 xl:py-0">
+            <div
+              className={cn(
+                "flex-1 bg-[url('/images/gallery/gallery3.png')] rounded-xl bg-cover bg-center bg-no-repeat flex justify-end flex-col text-white",
+                "pc",
+                "mobile aspect-[2/1]"
+              )}
+            >
               <div className="mx-6 mb-5">
                 <h3 className="text-base font-bold">
                   2024년 학생배치 · 학교설립 담당자 협의회
@@ -111,6 +134,8 @@ export default function Home() {
             </div>
           </div>
         </article>
+
+        <div className="lg:hidden bg-[#F4F7FF] absolute bottom-0 w-full h-full -z-10 left-0"></div>
       </section>
 
       <section className="container mt-20 px-4">
