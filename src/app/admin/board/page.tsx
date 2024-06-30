@@ -5,6 +5,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
@@ -15,12 +16,10 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
-import prisma from "@/prisma/prisma.client";
 import { TabsContent } from "@radix-ui/react-tabs";
+import Link from "next/link";
 
-export default async function NoticePage() {
-  const asdf = await prisma.board.findMany();
-
+export default function AdminNoticePage() {
   return (
     <>
       <section
@@ -30,7 +29,11 @@ export default async function NoticePage() {
           "mobile mt-[80px]"
         )}
       >
-        <h1 className="mt-20 text-3xl font-bold ">공지사항</h1>
+        <Link href="/admin/board/create">
+          <Button>글쓰기</Button>
+        </Link>
+
+        <h1 className="mt-20 text-3xl font-bold">갤러리</h1>
 
         <Breadcrumb className="mt-10">
           <BreadcrumbList>
@@ -43,7 +46,7 @@ export default async function NoticePage() {
             <BreadcrumbSeparator />
 
             <BreadcrumbItem>
-              <BreadcrumbLink href="/notice">공지사항</BreadcrumbLink>
+              <BreadcrumbLink href="/notice">갤러리</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
