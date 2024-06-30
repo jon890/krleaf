@@ -1,16 +1,13 @@
-import Footer from "@/components/main/Footer";
 import MainBoard from "@/components/main/MainBoard";
 import MainBusiness from "@/components/main/MainBusiness";
 import MainCarousel from "@/components/main/MainCarousel";
 import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import NavBar from "@/components/main/navbar";
 
 export default function Home() {
   return (
-    <main className="w-screen flex flex-col relative">
-      <NavBar />
+    <>
       <MainCarousel />
       <MainBoard />
       <MainBusiness />
@@ -266,8 +263,6 @@ export default function Home() {
           />
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

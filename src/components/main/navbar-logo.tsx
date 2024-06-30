@@ -11,9 +11,9 @@ export default function NavbarLogo() {
   return (
     <Link
       className={cn(
-        "flex-none mr-auto hover:opacity-50 active:opacity-50 transition-opacity",
-        "pc lg:max-w-[250px] lg:min-w-[200px] lg:relative",
-        "mobile w-[40vw] sm:w-[25vw] md:w-[22vw] h-auto"
+        "flex-none mr-auto hover:opacity-50 active:opacity-50 transition-opacity flex justify-center items-center",
+        "pc lg:w-[20vw] max-w-[295px] lg:relative lg:h-[50%]",
+        "mobile w-[25vw] sm:w-[25vw] md:w-[15vw] h-[50%]"
       )}
       href="/"
     >

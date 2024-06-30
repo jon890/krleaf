@@ -1,6 +1,8 @@
 import { FONT_PRETENDARD } from "@/lib/font-util";
 import type { Metadata } from "next";
 import "./globals.css";
+import NavBar from "@/components/main/navbar";
+import Footer from "@/components/main/Footer";
 
 export const metadata: Metadata = {
   title: "한국지방교육행정연구재단",
@@ -14,7 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={FONT_PRETENDARD.className}>{children}</body>
+      <body className={FONT_PRETENDARD.className}>
+        <main className="w-screen flex flex-col relative">
+          <NavBar />
+
+          {children}
+
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }

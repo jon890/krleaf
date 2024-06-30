@@ -77,10 +77,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "unfold-down": {
+          from: { height: "0" },
+          to: { height: "200px" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.5s ease-out",
         "accordion-up": "accordion-up 0.5s ease-out",
+        "unfold-down": "unfold-down 0.5s east-out",
       },
     },
   },
