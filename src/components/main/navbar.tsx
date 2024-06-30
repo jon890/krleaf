@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <nav
       className={cn(
-        "top-0 w-full text-black z-10 backdrop-blur relative",
+        "top-0 w-full text-black z-10 backdrop-blur fixed",
         "pc lg:h-[100px] lg:bg-white lg:bg-opacity-50 lg:px-4",
         "mobile h-[80px] px-5",
         FONT_PRETENDARD.className
