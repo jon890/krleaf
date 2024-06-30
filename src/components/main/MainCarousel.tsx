@@ -5,6 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function MainCarousel() {
   return (
@@ -15,37 +16,73 @@ export default function MainCarousel() {
         loop: true,
       }}
     >
+      {/* TODO bg-opacity */}
+      {/* TODO bg reponsive */}
+      {/* TODO back, next button */}
       <CarouselContent className="w-full h-full">
         <CarouselItem className="w-full">
           <div
             className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen",
-              `bg-[url('/images/background/bg_main1.png')]`
+              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
+              `bg-[url('/images/background/bg_main1.png')]`,
+              "pc lg:rounded-b-none",
+              "mobile rounded-b-[210px]"
             )}
           >
             <MainCarouselContent />
+
+            {/* TODO 스크롤 기능 추가 */}
+            <Image
+              src="/images/icons/icon_scroll.png"
+              height={200}
+              width={80}
+              alt="scroll"
+              className="absolute bottom-0 left-[calc(50%-40px)]"
+            />
           </div>
         </CarouselItem>
 
         <CarouselItem className="w-full">
           <div
             className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen",
-              `bg-[url('/images/background/bg_main2.png')]`
+              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
+              `bg-[url('/images/background/bg_main2.png')]`,
+              "pc lg:rounded-b-none",
+              "mobile rounded-b-[210px]"
             )}
           >
             <MainCarouselContent />
+
+            {/* TODO 스크롤 기능 추가 */}
+            <Image
+              src="/images/icons/icon_scroll.png"
+              height={200}
+              width={80}
+              alt="scroll"
+              className="absolute bottom-0 left-[calc(50%-40px)]"
+            />
           </div>
         </CarouselItem>
 
         <CarouselItem className="w-full">
           <div
             className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen",
-              `bg-[url('/images/background/bg_main3.png')]`
+              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
+              `bg-[url('/images/background/bg_main3.png')]`,
+              "pc lg:rounded-b-none",
+              "mobile rounded-b-[210px]"
             )}
           >
             <MainCarouselContent />
+
+            {/* TODO 스크롤 기능 추가 */}
+            <Image
+              src="/images/icons/icon_scroll.png"
+              height={200}
+              width={80}
+              alt="scroll"
+              className="absolute bottom-0 left-[calc(50%-40px)]"
+            />
           </div>
         </CarouselItem>
 
@@ -60,11 +97,19 @@ function MainCarouselContent() {
   return (
     <div
       className={cn(
-        "container flex flex-col items-end h-full justify-center px-4",
+        "container flex flex-col h-full justify-center px-4 relative",
+        "pc lg:items-end",
+        "mobile items-center drop-shadow-lg text-center",
         FONT_ONETWOTHREE_RF.className
       )}
     >
-      <h1 className="text-[#2F5BC1] xl:text-6xl text-3xl sm:text-4xl md:text-5xl">
+      <h1
+        className={cn(
+          "text-[#2F5BC1] xl:text-6xl text-3xl sm:text-4xl md:text-5xl",
+          "pc",
+          "mobile"
+        )}
+      >
         KRFLEA
       </h1>
       <h1 className="xl:text-6xl text-3xl sm:text-4xl md:text-5xl mb-6">
