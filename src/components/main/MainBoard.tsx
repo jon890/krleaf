@@ -100,7 +100,7 @@ function MainBoardTitle({ title }: { title: string }) {
     <h2
       className={cn(
         "flex-none font-bold",
-        "pc lg:mr-auto lg:text-3xl",
+        "pc lg:ml-0 lg:mr-auto lg:text-3xl",
         "mobile mx-auto text-2xl"
       )}
     >
@@ -111,7 +111,7 @@ function MainBoardTitle({ title }: { title: string }) {
 
 function MainBoardTab({ type = 1 }: { type?: 1 | 2 }) {
   return (
-    <ul className="flex flex-row xl:gap-10 gap-2">
+    <ul className="flex flex-row gap-2 lg:gap-4">
       <li
         className={cn(
           "font-bold xl:text-xl text-sm underline underline-offset-8",
