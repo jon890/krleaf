@@ -1,10 +1,9 @@
 import { FONT_PRETENDARD } from "@/lib/font-util";
 import { cn } from "@/lib/utils";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 import Link from "next/link";
-import NavbarLogo from "./navbar-logo";
 import MobileMenu from "./mobile-menu";
+import NavbarLogo from "./navbar-logo";
 
 export default function NavBar() {
   return (
@@ -29,7 +28,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/"
+            href="/notice"
             className="hover:text-gray-500 active:text-gray-500 transition-colors"
           >
             KRFLEA 소식
