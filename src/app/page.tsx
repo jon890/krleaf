@@ -18,10 +18,18 @@ export default function Home() {
       {/* TODO */}
       {/* <div className="bg-[#F4F7FF] absolute bottom-0 w-screen h-[900px] -z-10"></div> */}
 
-      <section className="container mt-20 flex xl:flex-row xl:gap-5 flex-col px-4 gap-10">
+      <section
+        className={cn(
+          "container flex px-4",
+          "pc lg:flex-row lg:gap-5 lg:mt-20",
+          "mobile flex-col gap-10 mt-15"
+        )}
+      >
         <article className="flex-1">
           <div>
-            <span className="font-bold xl:text-4xl text-2xl">
+            <span
+              className={cn("font-bold", "pc xl:text-4xl", "mobile text-2xl")}
+            >
               <strong className="text-krflea_text_primary">소셜</strong>미디어
             </span>
           </div>
