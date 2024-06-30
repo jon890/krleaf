@@ -139,10 +139,11 @@ export default function Home() {
       </section>
 
       <section className="container mt-20 px-4">
-        <div className="max-w-[600px] lg:max-w-[800px] w-full mx-auto">
+        <div className="max-w-[75%] lg:max-w-[800px] w-full mx-auto">
           <h2
             className={cn(
-              "text-2xl xl:text-5xl ",
+              "pc lg:text-5xl",
+              "mobile text-2xl",
               FONT_ONETWOTHREE_RF.className
             )}
           >
@@ -151,8 +152,20 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="mt-16 flex flex-row gap-6 w-full flex-wrap">
-          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+        <div
+          className={cn(
+            "mt-16 flex gap-6 w-full flex-wrap",
+            "pc lg:flex-row",
+            "mobile flex-col"
+          )}
+        >
+          <div
+            className={cn(
+              "flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row items-center rounded-xl",
+              "pc lg:justify-center",
+              "mobile justify-between"
+            )}
+          >
             <span className="size-24 rounded-full bg-white p-1 inline-block relative">
               <Image src="/images/icons/icon_map.png" fill alt="map" />
             </span>
@@ -160,20 +173,34 @@ export default function Home() {
               학구도 안내서비스
             </span>
           </div>
-          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+
+          <div
+            className={cn(
+              "flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row items-center rounded-xl",
+              "pc lg:justify-center",
+              "mobile justify-between"
+            )}
+          >
             <span className="size-24 rounded-full bg-white p-1 inline-block relative">
               <Image src="/images/icons/icon_map2.png" fill alt="map" />
             </span>
             <span className="font-bold text-xl text-[#333333]">
-              학구도 안내서비스
+              학구도 관리시스템
             </span>
           </div>
-          <div className="flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row justify-center items-center rounded-xl">
+
+          <div
+            className={cn(
+              "flex-1 bg-[#F4F6F8] px-10 py-6 gap-8 flex flex-row items-center rounded-xl",
+              "pc lg:justify-center",
+              "mobile justify-between"
+            )}
+          >
             <span className="size-24 rounded-full bg-white p-1 inline-block relative">
               <Image src="/images/icons/icon_map3.png" fill alt="map" />
             </span>
             <span className="font-bold text-xl text-[#333333]">
-              학구도 안내서비스
+              학생배치·학교설립 지원시스템
             </span>
           </div>
         </div>
