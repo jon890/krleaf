@@ -2,9 +2,27 @@ import { cn } from "@/lib/utils";
 
 export default function MainBoard() {
   return (
-    <section className="w-full container mt-20 flex flex-col xl:flex-row gap-4 px-4">
-      <article className="border-krflea_border border px-8 py-10 flex-1 rounded-xl flex flex-col">
-        <div className="flex flex-row items-center">
+    <section
+      className={cn(
+        "w-full container flex px-4",
+        "pc lg:mt-20 lg:gap-4 lg:flex-row",
+        "mobile mt-14 gap-10 flex-col"
+      )}
+    >
+      <article
+        className={cn(
+          "border-krflea_box_border border py-10 flex-1 rounded-xl flex flex-col",
+          "pc lg:px-8",
+          "mobile px-6"
+        )}
+      >
+        <div
+          className={cn(
+            "flex items-center",
+            "pc lg:flex-row lg:justify-start",
+            "mobile flex-col justify-center gap-6"
+          )}
+        >
           <MainBoardTitle title={"KRFLEA 소식"} />
           <MainBoardTab />
         </div>
@@ -79,7 +97,15 @@ export default function MainBoard() {
 
 function MainBoardTitle({ title }: { title: string }) {
   return (
-    <h2 className="flex-none mr-auto xl:text-3xl text-xl font-bold">{title}</h2>
+    <h2
+      className={cn(
+        "flex-none font-bold",
+        "pc lg:mr-auto lg:text-3xl",
+        "mobile mx-auto text-2xl"
+      )}
+    >
+      {title}
+    </h2>
   );
 }
 
@@ -94,12 +120,15 @@ function MainBoardTab({ type = 1 }: { type?: 1 | 2 }) {
       >
         전체
       </li>
+      <li className="text-[#AAAAAA]">/</li>
       <li className="font-bold xl:text-xl text-sm text-krflea_text_disabled">
         공지사항
       </li>
+      <li className="text-[#AAAAAA]">/</li>
       <li className="font-bold xl:text-xl text-sm text-krflea_text_disabled">
         채용정보
       </li>
+      <li className="text-[#AAAAAA]">/</li>
       <li className="font-bold xl:text-xl text-sm text-krflea_text_disabled">
         입찰공고
       </li>
@@ -109,8 +138,21 @@ function MainBoardTab({ type = 1 }: { type?: 1 | 2 }) {
 
 function MainBoardArticle() {
   return (
-    <article className="bg-[#ECF0F5] px-8 py-10 flex-1 rounded-xl flex flex-col">
-      <div className="flex flex-row items-center">
+    <article
+      className={cn(
+        "border-krflea_box_border border py-10 flex-1 rounded-xl flex flex-col",
+        "bg-[#ECF0F5]",
+        "pc lg:px-8",
+        "mobile px-6"
+      )}
+    >
+      <div
+        className={cn(
+          "flex items-center",
+          "pc lg:flex-row lg:justify-start",
+          "mobile flex-col justify-center gap-6"
+        )}
+      >
         <MainBoardTitle title={"정보자료"} />
         <MainBoardTab type={2} />
       </div>
