@@ -64,7 +64,7 @@ export default function PcMenu() {
 
       <div
         className={cn(
-          "absolute -bottom-[478px] w-full bg-white shadow-xl",
+          "absolute top-[100px] w-full bg-white shadow-xl",
           visibleMenu ? "block" : "hidden"
         )}
       >
