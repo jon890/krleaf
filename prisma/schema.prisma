@@ -9,19 +9,12 @@ datasource db {
 }
 
 model Board {
-  id        Int       @id @default(autoincrement())
-  boardType BoardType @map("board_type")
+  id        Int      @id @default(autoincrement())
+  boardType String   @map("board_type")
   title     String
   content   String
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt
 
   @@map("td_board")
-}
-
-enum BoardType {
-  NOTICE
-  RECRUIT
-  BIDDING
-  GALLERY
 }
