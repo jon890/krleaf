@@ -11,3 +11,5 @@ export const BoardTypes = [
   BoardType.BIDDING,
   BoardType.GALLERY,
 ];
+
+export type BoardType = (typeof BoardType)[keyof typeof BoardType];
