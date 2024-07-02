@@ -51,14 +51,32 @@ export default async function MainBoard() {
       <MainBoardArticle
         title="KRFLEA 소식"
         boardItems={boardItems}
-        tabs={[{ code: "ALL", text: "전체" }, ...targetBoardTypes]}
+        tabs={[
+          {
+            code: "ALL",
+            text: "전체",
+            breadcrumbs: [],
+            group: "krleaf_news",
+            href: "/",
+          },
+          ...targetBoardTypes,
+        ]}
       />
       <MainBoardArticle
         title="정보자료"
         backgroundColor="bg-[#ECF0F5]"
         tabActiveColor="decoration-[#2F5BC1]"
         boardItems={boardItems2}
-        tabs={[{ code: "ALL", text: "전체" }, ...targetBoardTypes2]}
+        tabs={[
+          {
+            code: "ALL",
+            text: "전체",
+            breadcrumbs: [],
+            group: "information",
+            href: "/",
+          },
+          ...targetBoardTypes2,
+        ]}
       />
     </section>
   );
