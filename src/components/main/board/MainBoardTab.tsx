@@ -2,7 +2,7 @@
 
 import { BoardType } from "@/constants/board-type";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 type Props = {
   tabActiveColor?: string;
@@ -20,9 +20,8 @@ export default function MainBoardTab({
   return (
     <ul className="flex flex-row gap-2 lg:gap-4">
       {tabs.map((tab, index) => (
-        <>
+        <Fragment key={tab.code}>
           <li
-            key={tab.code}
             className={cn(
               "font-bold xl:text-xl lg:text-lg text-sm cursor-pointer",
               active.code === tab.code
@@ -36,8 +35,8 @@ export default function MainBoardTab({
           >
             {tab.text}
           </li>
-          {index !== tabs.length - 1 && <li>/</li>}
-        </>
+          {index !== tabs.length - 1 && <li key={tab.code}>/</li>}
+        </Fragment>
       ))}
     </ul>
   );

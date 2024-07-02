@@ -5,7 +5,8 @@ import MainBoardTitle from "./MainBoardTitle";
 import MainBoardTab from "./MainBoardTab";
 import { Board } from "@prisma/client";
 import { BoardType } from "@/constants/board-type";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -62,24 +63,24 @@ export default function MainBoardArticle({
       <ul className="mt-11">
         {visibleItems.length > 0 ? (
           visibleItems.map((board, index) => (
-            <>
-              <li
-                key={board.id}
-                className="flex flex-row justify-start items-center"
-              >
+            <Fragment key={board.id}>
+              <li className="flex flex-row justify-start items-center">
                 <span className="bg-[#DEE8FF] rounded-xl py-1 px-4 text-base font-bold text-[#2F5BC1]">
                   {board.boardType}
                 </span>
-                <span className="ml-2 text-base flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
+                <Link
+                  href={`/board/${board.boardType.toLowerCase()}/${board.id}`}
+                  className="ml-2 text-base flex-1 overflow-hidden whitespace-nowrap text-ellipsis hover:opacity-50 active:opacity-50 transition-opacity"
+                >
                   {board.title}
-                </span>
+                </Link>
                 <span className="ml-auto">{board.createdAt.toISOString()}</span>
               </li>
 
               {index !== visibleItems.length - 1 && (
                 <li className="h-[1px] border-dotted border border-[#DDDDDD] my-5" />
               )}
-            </>
+            </Fragment>
           ))
         ) : (
           <li>아직 작성된 글이 없습니다.</li>

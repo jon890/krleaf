@@ -115,8 +115,8 @@ export default function PcMenu() {
               <ul className="*:font-semibold *:text-[18px] *:py-1 px-6 py-6 flex flex-col items-center">
                 <li>
                   <Link
-                    href="/notice"
-                    onClick={(event) => movePage(event, "/notice")}
+                    href="/board/notice"
+                    onClick={(event) => movePage(event, "/board/notice")}
                     className="hover:opacity-50 active:opacity-50 transition-opacity"
                   >
                     공지사항
@@ -124,8 +124,8 @@ export default function PcMenu() {
                 </li>
                 <li>
                   <Link
-                    href="/recruit"
-                    onClick={(event) => movePage(event, "/recruit")}
+                    href="/board/recruit"
+                    onClick={(event) => movePage(event, "/board/recruit")}
                     className="hover:opacity-50 active:opacity-50 transition-opacity"
                   >
                     채용정보
@@ -133,8 +133,8 @@ export default function PcMenu() {
                 </li>
                 <li>
                   <Link
-                    href="/bidding"
-                    onClick={(event) => movePage(event, "/bidding")}
+                    href="/board/bidding"
+                    onClick={(event) => movePage(event, "/board/bidding")}
                     className="hover:opacity-50 active:opacity-50 transition-opacity"
                   >
                     입찰공고
@@ -142,8 +142,8 @@ export default function PcMenu() {
                 </li>
                 <li>
                   <Link
-                    href="/gallery"
-                    onClick={(event) => movePage(event, "/gallery")}
+                    href="/board/gallery"
+                    onClick={(event) => movePage(event, "/board/gallery")}
                     className="hover:opacity-50 active:opacity-50 transition-opacity"
                   >
                     갤러리

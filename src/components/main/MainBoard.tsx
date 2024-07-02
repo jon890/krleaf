@@ -33,7 +33,12 @@ export default async function MainBoard() {
     BoardType.BIDDING,
   ];
 
+  const targetBoardTypes2 = [BoardType.LEGAL, BoardType.PRESS];
+
   const boardItems = await getBoardItems(targetBoardTypes.map((it) => it.code));
+  const boardItems2 = await getBoardItems(
+    targetBoardTypes2.map((it) => it.code)
+  );
 
   return (
     <section
@@ -52,8 +57,8 @@ export default async function MainBoard() {
         title="정보자료"
         backgroundColor="bg-[#ECF0F5]"
         tabActiveColor="decoration-[#2F5BC1]"
-        boardItems={boardItems}
-        tabs={[{ code: "ALL", text: "전체" }, ...targetBoardTypes]}
+        boardItems={boardItems2}
+        tabs={[{ code: "ALL", text: "전체" }, ...targetBoardTypes2]}
       />
     </section>
   );
