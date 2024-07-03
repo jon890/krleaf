@@ -26,6 +26,10 @@ prisma.$on("query", (e) => {
   const isDev = process.env.NODE_ENV === "development";
 
   if (isDev || isSlow) {
+    if (e.query === "BEGIN") return;
+    if (e.query === "DEALLOCATE ALL") return;
+    if (e.query === "COMMIT") return;
+
     console.log(`
     Query: ${e.query}
     Params: ${e.params}

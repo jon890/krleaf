@@ -1,20 +1,13 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
-import SelectBox from "@/components/common/select-box";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import Divider from "@/components/common/divider";
 import {
   getBoardTypeEnum,
   getCommonBoardTypes,
   isValidBoardType,
 } from "@/constants/board-type";
+import { yyyymmdd } from "@/lib/time-util";
 import { cn } from "@/lib/utils";
-import { getBoardItem } from "@/prisma/board.db";
+import { getBoardItemWithPrevNext } from "@/prisma/board.db";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -41,8 +34,12 @@ export default async function BoardListPage({
     return notFound();
   }
 
-  const boardItem = await getBoardItem(boardType, boardId);
-  console.log(boardItem);
+  const boardItem = await getBoardItemWithPrevNext(boardType, boardId);
+  if (!boardItem) {
+    return notFound();
+  }
+
+  const { item, nextItem, prevItem } = boardItem;
 
   return (
     <>
@@ -88,41 +85,84 @@ export default async function BoardListPage({
         </div>
       </section>
 
-      <section
-        className={cn(
-          "container px-10",
-          "pc lg:my-[100px]",
-          "mobile my-[80px]"
-        )}
-      >
-        <Table>
-          {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-          <TableHeader>
-            <TableRow>
-              <TableHead>번호</TableHead>
-              <TableHead>제목</TableHead>
-              <TableHead>첨부</TableHead>
-              <TableHead>작성자</TableHead>
-              <TableHead>날짜</TableHead>
-              <TableHead>조회</TableHead>
-            </TableRow>
-          </TableHeader>
+      <section className={cn("container px-5 mt-[71px] mb-[150px]")}>
+        <h2 className="text-[27px] font-bold">{item.title}</h2>
+        <div className="flex flex-row gap-12 py-5">
+          <div className="flex flex-row gap-3">
+            <span className="font-medium text-base">작성자</span>
+            <span className="font-normal text-base text-[#888888]">관리자</span>
+          </div>
+          <div className="flex flex-row gap-3">
+            <span className="font-medium text-base">등록일</span>
+            <span className="font-normal text-base text-[#888888]">
+              {yyyymmdd(item.createdAt)}
+            </span>
+          </div>
+          <div className="flex flex-row gap-3">
+            <span className="font-medium text-base">조회수</span>
+            <span className="font-normal text-base text-[#888888]">99</span>
+          </div>
+        </div>
 
-          <TableBody>
-            {Array(10)
-              .fill(undefined)
-              .map((_, i) => (
-                <TableRow key={i}>
-                  <TableCell>{10 - i}</TableCell>
-                  <TableCell>지방교육재정연구원 매거진 edumoa vol.6</TableCell>
-                  <TableCell>지방교육재정연구원 매거진 edumoa vol.6</TableCell>
-                  <TableCell>관리자</TableCell>
-                  <TableCell>2024-04-05</TableCell>
-                  <TableCell>480</TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
+        <Divider className="!bg-black" />
+
+        <div
+          dangerouslySetInnerHTML={{ __html: item.content }}
+          className="py-12"
+        />
+
+        <Divider className="!bg-[#E5E5E5]" />
+        <div className="flex flex-col">
+          {prevItem && (
+            <>
+              <div className="py-5 flex flex-row gap-12">
+                <span className="font-medium text-base">이전글</span>
+                <Link
+                  href={`${boardTypeEnum.href}/${prevItem.id}`}
+                  className="text-base font-normal text-[#555555] hover:opacity-50 active:opacity-50 transition-opacity"
+                >
+                  {prevItem.title}
+                </Link>
+                <span className="flex-none ml-auto text-base font-normal text-[#555555]">
+                  {yyyymmdd(prevItem.createdAt)}
+                </span>
+              </div>
+              <Divider className="!bg-[#E5E5E5]" />
+            </>
+          )}
+
+          {nextItem && (
+            <>
+              <div className="py-5 flex flex-row gap-12">
+                <span className="font-medium text-base">다음글</span>
+                <Link
+                  href={`${boardTypeEnum.href}/${nextItem.id}`}
+                  className="text-base font-normal text-[#555555] hover:opacity-50 active:opacity-50 transition-opacity"
+                >
+                  {nextItem.title}
+                </Link>
+                <span className="flex-none ml-auto text-base font-normal text-[#555555]">
+                  {yyyymmdd(nextItem.createdAt)}
+                </span>
+              </div>
+              <Divider className="!bg-[#E5E5E5]" />
+            </>
+          )}
+        </div>
+
+        <div className="w-full flex justify-center mt-[71px]">
+          <Link
+            href={boardTypeEnum.href}
+            className={cn(
+              "px-28 bg-white py-4",
+              "rounded-3xl border-krflea_text_primary border", // border
+              "font-bold text-xl text-krflea_text_primary", // font
+              "hover:opacity-50 active:opacity-50 transition-opacity"
+            )}
+          >
+            목록
+          </Link>
+        </div>
       </section>
     </>
   );
