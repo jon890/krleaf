@@ -7,10 +7,12 @@ export default function useWindowSize() {
     width?: number;
     height?: number;
     isMobile?: boolean;
+    scrollbarWidth?: number;
   }>({
     width: undefined,
     height: undefined,
     isMobile: undefined,
+    scrollbarWidth: undefined,
   });
 
   useEffect(() => {
@@ -19,6 +21,7 @@ export default function useWindowSize() {
         width: window.innerWidth,
         height: window.innerHeight,
         isMobile: window.innerWidth < 1024,
+        scrollbarWidth: window.innerWidth - document.body.clientWidth,
       });
     }
 

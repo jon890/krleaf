@@ -49,7 +49,7 @@ export default async function BoardListPage({
         <BoardBreadcrumb breadcrumbs={boardTypeEnum.breadcrumbs} />
       </section>
 
-      <section className="w-screen mt-5 relative">
+      <section className="w-full mt-5 relative">
         <Image
           src="/images/background/bg_notice.png"
           width={0}

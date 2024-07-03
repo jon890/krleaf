@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={FONT_PRETENDARD.className}>
-        <main className="w-screen flex flex-col relative">
+        <main className="w-full flex flex-col relative">
           <NavBar />
 
           {children}
