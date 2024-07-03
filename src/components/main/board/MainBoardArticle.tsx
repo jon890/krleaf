@@ -4,9 +4,11 @@ import { cn } from "@/lib/utils";
 import MainBoardTitle from "./MainBoardTitle";
 import MainBoardTab from "./MainBoardTab";
 import { Board } from "@prisma/client";
-import { BoardType } from "@/constants/board-type";
+import { BoardType, getBoardTypeEnum } from "@/constants/board-type";
 import { Fragment, useState } from "react";
 import Link from "next/link";
+import dayjs from "dayjs";
+import { yyyymmdd } from "@/lib/time-util";
 
 type Props = {
   title: string;
@@ -65,8 +67,25 @@ export default function MainBoardArticle({
           visibleItems.map((board, index) => (
             <Fragment key={board.id}>
               <li className="flex flex-row justify-start items-center">
-                <span className="bg-[#DEE8FF] rounded-xl py-1 px-4 text-base font-bold text-[#2F5BC1]">
-                  {board.boardType}
+                <span
+                  className={cn(
+                    "rounded-xl py-1 px-4 text-base font-bold",
+                    board.boardType === "NOTICE"
+                      ? "bg-[#DEE8FF] text-[#2F5BC1]"
+                      : "",
+                    board.boardType === "RECRUIT"
+                      ? "bg-[#E5E5E5] text-[#333333]"
+                      : "",
+                    board.boardType === "BIDDING"
+                      ? "bg-[#FFE6A3] text-[#5F4500]"
+                      : "",
+                    board.boardType === "LEGAL"
+                      ? "bg-white text-krflea_text_primary"
+                      : "",
+                    board.boardType === "PRESS" ? "bg-white text-[#333333]" : ""
+                  )}
+                >
+                  {getBoardTypeEnum(board.boardType)?.text?.substring(0, 2)}
                 </span>
                 <Link
                   href={`/board/${board.boardType.toLowerCase()}/${board.id}`}
@@ -74,7 +93,9 @@ export default function MainBoardArticle({
                 >
                   {board.title}
                 </Link>
-                <span className="ml-auto">{board.createdAt.toISOString()}</span>
+                <span className="ml-auto text-[#AAAAAA] text-base font-medium">
+                  {yyyymmdd(board.createdAt)}
+                </span>
               </li>
 
               {index !== visibleItems.length - 1 && (
