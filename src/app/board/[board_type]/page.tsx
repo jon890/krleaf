@@ -39,9 +39,7 @@ export default function BoardListPage({ params: { board_type } }: Props) {
 
   return (
     <>
-      <section
-        className={cn("container px-5", "pc lg:mt-[100px]", "mobile mt-[80px]")}
-      >
+      <section className={cn("container px-5", "pc lg:mt-24", "mobile mt-20")}>
         <BoardBreadcrumb breadcrumbs={boardTypeEnum.breadcrumbs} />
       </section>
 
@@ -60,7 +58,7 @@ export default function BoardListPage({ params: { board_type } }: Props) {
         </p>
       </section>
 
-      <section className={cn("container mt-[71px] px-5")}>
+      <section className={cn("container mt-20 mb-20 px-5")}>
         <div className="w-full relative">
           <ul className="w-full flex flex-row gap-16">
             {getCommonBoardTypes(boardTypeEnum).map((it) => (
@@ -92,19 +90,18 @@ export default function BoardListPage({ params: { board_type } }: Props) {
             검색
           </button>
         </div>
-      </section>
 
-      <section
-        className={cn(
-          "container px-10",
-          "pc lg:my-[100px]",
-          "mobile my-[80px]"
-        )}
-      >
-        <Table>
+        <div className="mt-16">
+          <p className="text-base">
+            총 <strong className="text-krflea_text_primary">514</strong>건 (
+            <strong className="text-krflea_text_primary">1</strong> / 52 페이지)
+          </p>
+        </div>
+
+        <Table className="mt-5">
           {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
           <TableHeader>
-            <TableRow>
+            <TableRow className="*:bg-[#E2E9FF] *:outline *:outline-1 *:outline-[#EEEEEE] *:text-center">
               <TableHead>번호</TableHead>
               <TableHead>제목</TableHead>
               <TableHead>첨부</TableHead>
@@ -118,17 +115,19 @@ export default function BoardListPage({ params: { board_type } }: Props) {
             {Array(10)
               .fill(undefined)
               .map((_, i) => (
-                <TableRow key={i}>
-                  <TableCell>{10 - i}</TableCell>
+                <TableRow key={i} className="*:border *:border-[#EEEEEE]">
+                  <TableCell className="text-center">{10 - i}</TableCell>
                   <TableCell>지방교육재정연구원 매거진 edumoa vol.6</TableCell>
-                  <TableCell>지방교육재정연구원 매거진 edumoa vol.6</TableCell>
-                  <TableCell>관리자</TableCell>
-                  <TableCell>2024-04-05</TableCell>
-                  <TableCell>480</TableCell>
+                  <TableCell className="text-center"></TableCell>
+                  <TableCell className="text-center">관리자</TableCell>
+                  <TableCell className="text-center">2024-04-05</TableCell>
+                  <TableCell className="text-center">480</TableCell>
                 </TableRow>
               ))}
           </TableBody>
         </Table>
+
+        <div className="mt-16"></div>
       </section>
     </>
   );
