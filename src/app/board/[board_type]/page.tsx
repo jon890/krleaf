@@ -1,6 +1,14 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
 import SelectBox from "@/components/common/select-box";
 import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import {
   Table,
   TableBody,
   TableCell,
@@ -127,7 +135,27 @@ export default function BoardListPage({ params: { board_type } }: Props) {
           </TableBody>
         </Table>
 
-        <div className="mt-16"></div>
+        <div className="mt-16">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious href="#" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="1">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="1">2</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="1">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext href="#" />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </section>
     </>
   );
