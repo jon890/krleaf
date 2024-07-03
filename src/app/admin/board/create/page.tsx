@@ -15,7 +15,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { BoardType, BoardTypes } from "@/constants/board-type";
+import { BoardTypes } from "@/constants/board-type";
 import { cn } from "@/lib/utils";
 import createBoardAction from "@/server/create-board.action";
 import { Editor } from "@tinymce/tinymce-react";

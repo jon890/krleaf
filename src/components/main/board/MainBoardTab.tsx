@@ -23,7 +23,7 @@ export default function MainBoardTab({
         <Fragment key={tab.code}>
           <li
             className={cn(
-              "font-bold xl:text-xl lg:text-lg text-sm cursor-pointer",
+              "font-bold xl:text-xl text-lg cursor-pointer",
               active.code === tab.code
                 ? `underline-offset-8 underline ${tabActiveColor ?? ""}`
                 : "text-[#AAAAAA]"

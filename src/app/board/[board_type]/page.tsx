@@ -1,4 +1,5 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
+import SelectBox from "@/components/common/select-box";
 import {
   Table,
   TableBody,
@@ -35,9 +36,6 @@ export default function BoardListPage({ params: { board_type } }: Props) {
   if (!boardTypeEnum) {
     return notFound();
   }
-
-  // const boardItem = await getBoardItem(boardType, boardId);
-  // console.log(boardItem);
 
   return (
     <>
@@ -80,6 +78,19 @@ export default function BoardListPage({ params: { board_type } }: Props) {
             ))}
           </ul>
           <div className="absolute w-full bg-[#E5E5E5] h-[2px] -bottom-[11px] -z-10"></div>
+        </div>
+
+        {/* 검색 */}
+        <div className="mt-10 bg-[#F7F8FB] w-full rounded-md flex flex-row py-10 justify-center items-center gap-[9px]">
+          <SelectBox />
+          <input
+            type="text"
+            placeholder="검색어를 입력해주세요"
+            className="w-[432px] bg-white rounded-md border border-[#DDDDDD] px-8 py-3 placeholder:text-xl"
+          />
+          <button className="font-bold text-xl px-8 py-3 text-white bg-krflea_text_primary rounded-md">
+            검색
+          </button>
         </div>
       </section>
 

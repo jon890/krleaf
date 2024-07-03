@@ -1,4 +1,5 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
+import SelectBox from "@/components/common/select-box";
 import {
   Table,
   TableBody,
