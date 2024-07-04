@@ -2,6 +2,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
 import { cn } from "@/lib/utils";
@@ -10,13 +12,10 @@ import Image from "next/image";
 export default function MainCarousel() {
   return (
     <Carousel
-      className="w-full h-screen"
+      className="w-full h-screen relative"
       orientation="horizontal"
-      opts={{
-        loop: true,
-      }}
+      opts={{ loop: true }}
     >
-      {/* TODO back, next button */}
       <CarouselContent className="w-full h-full">
         <CarouselItem className="w-full">
           <div className="w-full h-screen relative overflow-hidden">
@@ -103,10 +102,10 @@ export default function MainCarousel() {
             />
           </div>
         </CarouselItem>
-
-        {/* <CarouselNext /> */}
-        {/* <CarouselPrevious /> */}
       </CarouselContent>
+
+      <CarouselNext />
+      <CarouselPrevious />
     </Carousel>
   );
 }
@@ -123,9 +122,7 @@ function MainCarouselContent() {
     >
       <h1
         className={cn(
-          "text-[#2F5BC1] xl:text-6xl text-3xl sm:text-4xl md:text-5xl",
-          "pc",
-          "mobile"
+          "text-[#2F5BC1] xl:text-6xl text-3xl sm:text-4xl md:text-5xl"
         )}
       >
         KRFLEA
