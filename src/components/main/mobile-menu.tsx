@@ -40,7 +40,7 @@ export default function MobileMenu() {
         </DrawerTrigger>
 
         <DrawerContent className="w-4/5 py-10 h-full">
-          <div className="w-full overflow-y-auto">
+          <div className="w-full overflow-y-auto overflow-x-hidden">
             <div className="flex flex-row items-center pl-10">
               <Image
                 src="/images/logo/logo_mobile_menu.png"
@@ -63,7 +63,7 @@ export default function MobileMenu() {
 
             <Divider className="mt-4" />
 
-            <div className="relative w-full flex items-center my-3 mx-4">
+            <div className="relative flex items-center my-3 mx-4">
               <div className="absolute left-0 pl-6">
                 <MagnifyingGlassIcon className="size-6" />
               </div>
