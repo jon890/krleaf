@@ -14,52 +14,63 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { BoardTypes } from "@/constants/board-type";
 import { cn } from "@/lib/utils";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-export default function SelectBox() {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState<string | undefined>();
+type Props = {
+  values: { code: string; text: string }[];
+  emptyText?: string;
+  hasSearch?: boolean;
+  searchText?: string;
+};
+
+export default function SelectBox({
+  values,
+  emptyText,
+  hasSearch,
+  searchText,
+}: Props) {
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState<string | undefined>();
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           role="combobox"
-          aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-[200px] justify-between text-base !py-3 !border-[#DDDDDD] !h-auto"
         >
-          {value
-            ? BoardTypes.find((boardType) => boardType.code === value)?.text
-            : "게시판 유형을 선택하세요"}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          {values.find((it) => it.code === selectedValue)?.text ??
+            "항목을 선택하세요"}
+          <ChevronDown className="ml-2 h-4 w-4 shrink-0" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
-        <Command value={value} onValueChange={setValue}>
-          <CommandInput placeholder="Search framework..." />
+        <Command value={selectedValue} onValueChange={setSelectedValue}>
+          {hasSearch && <CommandInput placeholder={searchText} />}
+
           <CommandList>
-            <CommandEmpty>해당 게시판을 찾을 수 없습니다</CommandEmpty>
+            {emptyText && <CommandEmpty>{emptyText}</CommandEmpty>}
+
             <CommandGroup>
-              {BoardTypes.map((boardType) => (
+              {values.map((value) => (
                 <CommandItem
-                  key={boardType.code}
-                  value={boardType.code}
+                  key={value.code}
+                  value={value.code}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
+                    setSelectedValue(currentValue);
+                    setPopoverOpen(false);
                   }}
                 >
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === boardType.code ? "opacity-100" : "opacity-0"
+                      selectedValue === value.code ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {boardType.text}
+                  {value.text}
                 </CommandItem>
               ))}
             </CommandGroup>
