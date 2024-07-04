@@ -39,7 +39,7 @@ export default function MobileMenu() {
           />
         </DrawerTrigger>
 
-        <DrawerContent className="w-4/5 py-10 h-full">
+        <DrawerContent className="w-4/5 py-10 h-full max-w-[500px]">
           <div className="w-full overflow-y-auto overflow-x-hidden">
             <div className="flex flex-row items-center pl-10">
               <Image
@@ -71,7 +71,7 @@ export default function MobileMenu() {
                 type="text"
                 placeholder="검색어를 입력해주세요"
                 className={cn(
-                  "border-[#BBBBBB] border-2 rounded-3xl ml-3 py-3 pl-10",
+                  "flex-1 border-[#BBBBBB] border-2 rounded-3xl mx-3 py-3 pl-10",
                   "placeholder:text-[#AAAAAA] placeholder:font-bold placeholder:text-sm" // placeholder
                 )}
               />
