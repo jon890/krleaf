@@ -146,7 +146,14 @@ export default async function BoardListPage({
                   <TableCell className="text-center">
                     {totalItemCount - i - (page - 1) * 10}
                   </TableCell>
-                  <TableCell>{item.title}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={`${boardTypeEnum.href}/${item.id}`}
+                      className={HOVER_CLASSNAME}
+                    >
+                      {item.title}
+                    </Link>
+                  </TableCell>
                   <TableCell className="text-center"></TableCell>
                   <TableCell className="text-center">관리자</TableCell>
                   <TableCell className="text-center">
