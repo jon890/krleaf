@@ -54,7 +54,7 @@ export default function MainBoardArticle({
       <div
         className={cn(
           "flex items-center",
-          "pc lg:flex-row lg:justify-start",
+          "pc xl:flex-row xl:justify-start",
           "mobile flex-col justify-center gap-6"
         )}
       >
