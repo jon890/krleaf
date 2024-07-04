@@ -87,7 +87,6 @@ export async function getBoardItems(boardType: BoardType, page: number) {
 
   return {
     items: boardItems,
-    page,
     totalItemCount,
     totalPage: Math.floor(totalItemCount / unit) + 1,
   };

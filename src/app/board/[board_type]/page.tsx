@@ -1,13 +1,6 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
+import Paging from "@/components/common/paging";
 import SelectBox from "@/components/common/select-box";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import {
   Table,
   TableBody,
@@ -27,16 +20,23 @@ import { cn } from "@/lib/utils";
 import { getBoardItems } from "@/prisma/board.db";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 type Props = {
   params: {
     board_type?: string;
   };
+  searchParams: {
+    page?: string;
+  };
 };
 
-export default async function BoardListPage({ params: { board_type } }: Props) {
+export default async function BoardListPage({
+  params: { board_type },
+  searchParams: { page: _page = "1" },
+}: Props) {
   const boardType = board_type?.toUpperCase();
+  const page = Number(_page);
 
   if (!boardType || !isValidBoardType(boardType)) {
     return notFound();
@@ -47,9 +47,13 @@ export default async function BoardListPage({ params: { board_type } }: Props) {
     return notFound();
   }
 
-  const { items, page, totalItemCount, totalPage } = await getBoardItems(
+  if (Number.isNaN(page) || page < 1) {
+    return redirect(boardTypeEnum.href + "?page=1");
+  }
+
+  const { items, totalItemCount, totalPage } = await getBoardItems(
     boardTypeEnum,
-    1
+    page
   );
 
   return (
@@ -133,7 +137,9 @@ export default async function BoardListPage({ params: { board_type } }: Props) {
             {items.length > 0 ? (
               items.map((item, i) => (
                 <TableRow key={i} className="*:border *:border-[#EEEEEE]">
-                  <TableCell className="text-center">{page * 10 - i}</TableCell>
+                  <TableCell className="text-center">
+                    {totalItemCount - i - (page - 1) * 10}
+                  </TableCell>
                   <TableCell>{item.title}</TableCell>
                   <TableCell className="text-center"></TableCell>
                   <TableCell className="text-center">관리자</TableCell>
@@ -145,32 +151,20 @@ export default async function BoardListPage({ params: { board_type } }: Props) {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={6}></TableCell>
+                <TableCell colSpan={6} className="text-center">
+                  아직 작성된 글이 없습니다.
+                </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
 
         <div className="mt-16">
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious href="#" />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="1">1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="1">2</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="1">3</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationNext href="#" />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          <Paging
+            currentPage={page}
+            totalPage={totalPage}
+            baseUrl={boardTypeEnum.href}
+          />
         </div>
       </section>
     </>
