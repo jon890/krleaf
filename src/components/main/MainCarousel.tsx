@@ -16,19 +16,24 @@ export default function MainCarousel() {
         loop: true,
       }}
     >
-      {/* TODO bg-opacity */}
-      {/* TODO bg reponsive */}
       {/* TODO back, next button */}
       <CarouselContent className="w-full h-full">
         <CarouselItem className="w-full">
-          <div
-            className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
-              `bg-[url('/images/background/bg_main1.png')]`,
-              "pc lg:rounded-b-none",
-              "mobile rounded-b-[210px]"
-            )}
-          >
+          <div className="w-full h-screen relative overflow-hidden">
+            <Image
+              src="/images/background/bg_main1.png"
+              width={0}
+              height={0}
+              sizes="100vh"
+              className={cn(
+                "absolute w-full h-full -z-10 opacity-80",
+                "top-1/2 left-1/2 object-cover -translate-x-1/2 -translate-y-1/2",
+                "pc lg:rounded-b-none",
+                "mobile rounded-b-[210px]"
+              )}
+              alt="bg_main"
+            />
+
             <MainCarouselContent />
 
             {/* TODO 스크롤 기능 추가 */}
@@ -43,14 +48,21 @@ export default function MainCarousel() {
         </CarouselItem>
 
         <CarouselItem className="w-full">
-          <div
-            className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
-              `bg-[url('/images/background/bg_main2.png')]`,
-              "pc lg:rounded-b-none",
-              "mobile rounded-b-[210px]"
-            )}
-          >
+          <div className="w-full h-screen relative">
+            <Image
+              src="/images/background/bg_main2.png"
+              width={0}
+              height={0}
+              sizes="100vh"
+              className={cn(
+                "absolute w-full h-full -z-10 opacity-80",
+                "top-1/2 left-1/2 object-cover -translate-x-1/2 -translate-y-1/2",
+                "pc lg:rounded-b-none",
+                "mobile rounded-b-[210px]"
+              )}
+              alt="bg_main"
+            />
+
             <MainCarouselContent />
 
             {/* TODO 스크롤 기능 추가 */}
@@ -65,14 +77,20 @@ export default function MainCarousel() {
         </CarouselItem>
 
         <CarouselItem className="w-full">
-          <div
-            className={cn(
-              "w-full bg-center bg-no-repeat bg-cover h-screen relative bg-opacity-80",
-              `bg-[url('/images/background/bg_main3.png')]`,
-              "pc lg:rounded-b-none",
-              "mobile rounded-b-[210px]"
-            )}
-          >
+          <div className="w-full h-screen relative">
+            <Image
+              src="/images/background/bg_main3.png"
+              width={0}
+              height={0}
+              sizes="100vh"
+              className={cn(
+                "absolute w-full h-full -z-10 opacity-80",
+                "top-1/2 left-1/2 object-cover -translate-x-1/2 -translate-y-1/2",
+                "pc lg:rounded-b-none",
+                "mobile rounded-b-[210px]"
+              )}
+              alt="bg_main"
+            />
             <MainCarouselContent />
 
             {/* TODO 스크롤 기능 추가 */}
