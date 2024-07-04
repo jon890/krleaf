@@ -160,24 +160,21 @@ export default function MobileMenu() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8">
-                    <li>사업소개</li>
-                    <li>
-                      지방교육행정기관 재정투자사업 투자심사 지원 · 관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>재정투자심사 운영ㆍ관리</li>
-                        <li>지방교육행정기관 설립 정책 지원</li>
-                      </ul>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">소개</Link>
                     </li>
-                    <li>
-                      교육행정기관 컨설팅 및 시스템 운영관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>교육행정기관 설립 컨설팅 </li>
-                        <li>학교설립 담당업무 교육지원 프로그램 운영 </li>
-                        <li>학생배치 · 학교설립 지원시스템 운영 · 관리 </li>
-                        <li>학구도 정보시스템 운영 · 관리</li>
-                      </ul>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">연혁</Link>
                     </li>
-                    <li>지방교육행정기관 타당성 조사</li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">조직 및 업무</Link>
+                    </li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">로고 소개</Link>
+                    </li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">찾아오시는 길</Link>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
