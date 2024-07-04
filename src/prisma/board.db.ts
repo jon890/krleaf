@@ -1,3 +1,4 @@
+import { BoardType } from "@/constants/board-type";
 import prisma from "./prisma.client";
 
 export function getBoardItem(boardType: string, boardId: number) {
@@ -56,5 +57,38 @@ export async function getBoardItemWithPrevNext(
     item,
     nextItem,
     prevItem,
+  };
+}
+
+export async function getBoardItems(boardType: BoardType, page: number) {
+  const unit = 10;
+
+  const boardItems = await prisma.board.findMany({
+    select: {
+      id: true,
+      title: true,
+      createdAt: true,
+    },
+    where: {
+      boardType: boardType.code,
+    },
+    skip: (page - 1) * unit,
+    take: unit,
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  const totalItemCount = await prisma.board.count({
+    where: {
+      boardType: boardType.code,
+    },
+  });
+
+  return {
+    items: boardItems,
+    page,
+    totalItemCount,
+    totalPage: Math.floor(totalItemCount / unit) + 1,
   };
 }

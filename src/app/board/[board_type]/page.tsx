@@ -22,7 +22,9 @@ import {
   getCommonBoardTypes,
   isValidBoardType,
 } from "@/constants/board-type";
+import { yyyymmdd } from "@/lib/time-util";
 import { cn } from "@/lib/utils";
+import { getBoardItems } from "@/prisma/board.db";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -33,7 +35,7 @@ type Props = {
   };
 };
 
-export default function BoardListPage({ params: { board_type } }: Props) {
+export default async function BoardListPage({ params: { board_type } }: Props) {
   const boardType = board_type?.toUpperCase();
 
   if (!boardType || !isValidBoardType(boardType)) {
@@ -44,6 +46,11 @@ export default function BoardListPage({ params: { board_type } }: Props) {
   if (!boardTypeEnum) {
     return notFound();
   }
+
+  const { items, page, totalItemCount, totalPage } = await getBoardItems(
+    boardTypeEnum,
+    1
+  );
 
   return (
     <>
@@ -101,18 +108,21 @@ export default function BoardListPage({ params: { board_type } }: Props) {
 
         <div className="mt-16">
           <p className="text-base">
-            총 <strong className="text-krflea_text_primary">514</strong>건 (
-            <strong className="text-krflea_text_primary">1</strong> / 52 페이지)
+            총{" "}
+            <strong className="text-krflea_text_primary">
+              {totalItemCount}
+            </strong>
+            건 (<strong className="text-krflea_text_primary">{page}</strong> /{" "}
+            {totalPage} 페이지)
           </p>
         </div>
 
         <Table className="mt-5">
-          {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
           <TableHeader>
-            <TableRow className="*:bg-[#E2E9FF] *:outline *:outline-1 *:outline-[#EEEEEE] *:text-center">
+            <TableRow className="*:bg-[#E2E9FF] *:outline *:outline-1 *:outline-[#EEEEEE] *:text-center *:font-bold *:text-black">
               <TableHead>번호</TableHead>
               <TableHead>제목</TableHead>
-              <TableHead>첨부</TableHead>
+              <TableHead>첨부파일</TableHead>
               <TableHead>작성자</TableHead>
               <TableHead>날짜</TableHead>
               <TableHead>조회</TableHead>
@@ -120,18 +130,24 @@ export default function BoardListPage({ params: { board_type } }: Props) {
           </TableHeader>
 
           <TableBody>
-            {Array(10)
-              .fill(undefined)
-              .map((_, i) => (
+            {items.length > 0 ? (
+              items.map((item, i) => (
                 <TableRow key={i} className="*:border *:border-[#EEEEEE]">
-                  <TableCell className="text-center">{10 - i}</TableCell>
-                  <TableCell>지방교육재정연구원 매거진 edumoa vol.6</TableCell>
+                  <TableCell className="text-center">{page * 10 - i}</TableCell>
+                  <TableCell>{item.title}</TableCell>
                   <TableCell className="text-center"></TableCell>
                   <TableCell className="text-center">관리자</TableCell>
-                  <TableCell className="text-center">2024-04-05</TableCell>
+                  <TableCell className="text-center">
+                    {yyyymmdd(item.createdAt)}
+                  </TableCell>
                   <TableCell className="text-center">480</TableCell>
                 </TableRow>
-              ))}
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={6}></TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
 
