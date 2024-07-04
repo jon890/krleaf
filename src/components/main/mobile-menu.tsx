@@ -42,7 +42,7 @@ export default function MobileMenu() {
 
         <DrawerContent className="w-3/4 py-10 max-w-[500px]">
           <ScrollArea className="bg-white flex-1 h-full">
-            <div>
+            <div className="w-full">
               <div className="flex flex-row items-center pl-10">
                 <Image
                   src="/images/logo/logo_mobile_menu.png"
