@@ -8,6 +8,7 @@ import {
 import { FONT_ONETWOTHREE_RF } from "@/lib/font-util";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { MainCarouselScrollButton } from "./carousel/MainCarouselScrollButton";
 
 export default function MainCarousel() {
   return (
@@ -34,15 +35,7 @@ export default function MainCarousel() {
             />
 
             <MainCarouselContent />
-
-            {/* TODO 스크롤 기능 추가 */}
-            <Image
-              src="/images/icons/icon_scroll.png"
-              height={200}
-              width={80}
-              alt="scroll"
-              className="absolute bottom-0 left-[calc(50%-40px)]"
-            />
+            <MainCarouselScrollButton />
           </div>
         </CarouselItem>
 
@@ -63,15 +56,7 @@ export default function MainCarousel() {
             />
 
             <MainCarouselContent />
-
-            {/* TODO 스크롤 기능 추가 */}
-            <Image
-              src="/images/icons/icon_scroll.png"
-              height={200}
-              width={80}
-              alt="scroll"
-              className="absolute bottom-0 left-[calc(50%-40px)]"
-            />
+            <MainCarouselScrollButton />
           </div>
         </CarouselItem>
 
@@ -91,15 +76,7 @@ export default function MainCarousel() {
               alt="bg_main"
             />
             <MainCarouselContent />
-
-            {/* TODO 스크롤 기능 추가 */}
-            <Image
-              src="/images/icons/icon_scroll.png"
-              height={200}
-              width={80}
-              alt="scroll"
-              className="absolute bottom-0 left-[calc(50%-40px)]"
-            />
+            <MainCarouselScrollButton />
           </div>
         </CarouselItem>
       </CarouselContent>
