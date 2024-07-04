@@ -16,6 +16,9 @@ import {
   AccordionItem,
 } from "@/components/ui/accordion";
 import { AccordionTrigger } from "../ui/accordion";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { HOVER_CLASSNAME } from "@/lib/classname-util";
 
 export default function MobileMenu() {
   const { isMobile } = useWindowSize();
@@ -37,7 +40,7 @@ export default function MobileMenu() {
         </DrawerTrigger>
 
         <DrawerContent className="w-3/4 py-10">
-          <div className="bg-white flex-1 h-full">
+          <div className="bg-white flex-1 h-auto">
             <div className="flex flex-row items-center pl-10">
               <Image
                 src="/images/logo/logo_mobile_menu.png"
@@ -107,25 +110,23 @@ export default function MobileMenu() {
                   KRFLEA 소식
                 </AccordionTrigger>
                 <AccordionContent>
-                  <ul className="*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8">
-                    <li>사업소개</li>
-                    <li>
-                      지방교육행정기관 재정투자사업 투자심사 지원 · 관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>재정투자심사 운영ㆍ관리</li>
-                        <li>지방교육행정기관 설립 정책 지원</li>
-                      </ul>
+                  <ul
+                    className={cn(
+                      "*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8"
+                    )}
+                  >
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/notice">공지사항</Link>
                     </li>
-                    <li>
-                      교육행정기관 컨설팅 및 시스템 운영관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>교육행정기관 설립 컨설팅 </li>
-                        <li>학교설립 담당업무 교육지원 프로그램 운영 </li>
-                        <li>학생배치 · 학교설립 지원시스템 운영 · 관리 </li>
-                        <li>학구도 정보시스템 운영 · 관리</li>
-                      </ul>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/recruit">채용정보</Link>
                     </li>
-                    <li>지방교육행정기관 타당성 조사</li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/bidding">입찰공고</Link>
+                    </li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/gallery">갤러리</Link>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>
@@ -135,25 +136,20 @@ export default function MobileMenu() {
                   정보자료
                 </AccordionTrigger>
                 <AccordionContent>
-                  <ul className="*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8">
-                    <li>사업소개</li>
-                    <li>
-                      지방교육행정기관 재정투자사업 투자심사 지원 · 관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>재정투자심사 운영ㆍ관리</li>
-                        <li>지방교육행정기관 설립 정책 지원</li>
-                      </ul>
+                  <ul
+                    className={cn(
+                      "*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8"
+                    )}
+                  >
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/#">정보시스템</Link>
                     </li>
-                    <li>
-                      교육행정기관 컨설팅 및 시스템 운영관리
-                      <ul className="*:text-base *:before:w-[5px] *:before:h-[5px] *:before:rounded-full *:before:bg-black *:before:inline-block *:before:mx-1 *:font-normal *:py-1">
-                        <li>교육행정기관 설립 컨설팅 </li>
-                        <li>학교설립 담당업무 교육지원 프로그램 운영 </li>
-                        <li>학생배치 · 학교설립 지원시스템 운영 · 관리 </li>
-                        <li>학구도 정보시스템 운영 · 관리</li>
-                      </ul>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/legal">법령자료</Link>
                     </li>
-                    <li>지방교육행정기관 타당성 조사</li>
+                    <li className={HOVER_CLASSNAME}>
+                      <Link href="/board/press">보도자료</Link>
+                    </li>
                   </ul>
                 </AccordionContent>
               </AccordionItem>

@@ -90,6 +90,7 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: ["hover:opacity-50", "active:opacity-50", "transition-opacity"],
 } satisfies Config;
 
 export default config;
