@@ -15,6 +15,7 @@ import {
   getCommonBoardTypes,
   isValidBoardType,
 } from "@/constants/board-type";
+import { HOVER_CLASSNAME } from "@/lib/classname-util";
 import { yyyymmdd } from "@/lib/time-util";
 import { cn } from "@/lib/utils";
 import { getBoardItems } from "@/prisma/board.db";
@@ -103,9 +104,14 @@ export default async function BoardListPage({
           <input
             type="text"
             placeholder="검색어를 입력해주세요"
-            className="text-base w-[432px] bg-white rounded-md border border-[#DDDDDD] px-8 py-3 placeholder:text-base"
+            className="text-base w-[432px] bg-white rounded-md border border-[#DDDDDD] px-3 py-3 placeholder:text-base"
           />
-          <button className="font-bold text-base px-8 py-3 text-white bg-krflea_text_primary rounded-md">
+          <button
+            className={cn(
+              "font-bold text-base px-8 py-3 text-white bg-krflea_text_primary rounded-md",
+              HOVER_CLASSNAME
+            )}
+          >
             검색
           </button>
         </div>
