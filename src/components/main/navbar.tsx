@@ -20,12 +20,19 @@ export default function NavBar() {
 
         <PcMenu />
 
-        <div className="ml-32 md:ml-16 border-[#BBBBBB] border-2 rounded-3xl flex-row gap-3 justify-center items-center py-3 px-4 hidden xl:flex">
+        <div
+          className={cn(
+            "ml-32 flex-row gap-3 justify-center items-center py-3 px-4 bg-white",
+            "border-[#BBBBBB] border-2 rounded-3xl",
+            "mobile hidden",
+            "pc xl:flex"
+          )}
+        >
           <MagnifyingGlassIcon className="size-7" />
           <input
             type="text"
             placeholder="검색어를 입력해주세요"
-            className="placeholder:text-[#AAAAAA] placeholder:font-bold placeholder:text-sm bg-transparent"
+            className="placeholder:text-[#AAAAAA] placeholder:font-bold placeholder:text-sm outline-none"
           />
         </div>
 
