@@ -1,25 +1,24 @@
 "use client";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+} from "@/components/ui/accordion";
 import useWindowSize from "@/hooks/use-window-size";
+import { HOVER_CLASSNAME } from "@/lib/classname-util";
+import { cn } from "@/lib/utils";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 import Divider from "../common/divider";
+import { AccordionTrigger } from "../ui/accordion";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
   DrawerTrigger,
 } from "../ui/drawer";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-} from "@/components/ui/accordion";
-import { AccordionTrigger } from "../ui/accordion";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { HOVER_CLASSNAME } from "@/lib/classname-util";
-import { ScrollArea } from "../ui/scroll-area";
 
 export default function MobileMenu() {
   const { isMobile } = useWindowSize();
@@ -40,8 +39,8 @@ export default function MobileMenu() {
           />
         </DrawerTrigger>
 
-        <DrawerContent className="w-3/4 py-10 max-w-[500px]">
-          <ScrollArea className="bg-white h-full">
+        <DrawerContent className="w-4/5 py-10 h-full">
+          <div className="w-full overflow-y-auto">
             <div className="flex flex-row items-center pl-10">
               <Image
                 src="/images/logo/logo_mobile_menu.png"
@@ -64,15 +63,18 @@ export default function MobileMenu() {
 
             <Divider className="mt-4" />
 
-            <div className="py-6 px-8">
-              <div className="border-[#BBBBBB] border-2 rounded-3xl flex flex-row gap-3 justify-center items-center py-3 px-4">
-                <MagnifyingGlassIcon className="size-7" />
-                <input
-                  type="text"
-                  placeholder="검색어를 입력해주세요"
-                  className="placeholder:text-[#AAAAAA] placeholder:font-bold placeholder:text-sm bg-transparent"
-                />
+            <div className="relative w-full flex items-center my-3 mx-4">
+              <div className="absolute left-0 pl-6">
+                <MagnifyingGlassIcon className="size-6" />
               </div>
+              <input
+                type="text"
+                placeholder="검색어를 입력해주세요"
+                className={cn(
+                  "border-[#BBBBBB] border-2 rounded-3xl ml-3 py-3 pl-10",
+                  "placeholder:text-[#AAAAAA] placeholder:font-bold placeholder:text-sm" // placeholder
+                )}
+              />
             </div>
 
             <Divider />
@@ -83,7 +85,7 @@ export default function MobileMenu() {
                   주요사업
                 </AccordionTrigger>
                 <AccordionContent>
-                  <ul className="*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8">
+                  <ul className="*:font-semibold *:text-base *:py-1 bg-[#F8F8F8] px-6 py-8">
                     <li>사업소개</li>
                     <li>
                       지방교육행정기관 재정투자사업 투자심사 지원 · 관리
@@ -139,7 +141,7 @@ export default function MobileMenu() {
                 <AccordionContent>
                   <ul
                     className={cn(
-                      "*:font-semibold *:text-xl *:py-1 bg-[#F8F8F8] px-6 py-8"
+                      "*:font-semibold *:text-base *:py-1 bg-[#F8F8F8] px-6 py-8"
                     )}
                   >
                     <li className={HOVER_CLASSNAME}>
@@ -180,7 +182,7 @@ export default function MobileMenu() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </ScrollArea>
+          </div>
         </DrawerContent>
       </Drawer>
     )
