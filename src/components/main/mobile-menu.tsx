@@ -39,7 +39,7 @@ export default function MobileMenu() {
           />
         </DrawerTrigger>
 
-        <DrawerContent className="w-3/4 py-10">
+        <DrawerContent className="w-3/4 py-10 max-w-[500px] overflow-y-auto">
           <div className="bg-white flex-1 h-auto">
             <div className="flex flex-row items-center pl-10">
               <Image
@@ -49,7 +49,7 @@ export default function MobileMenu() {
                 height={0}
                 sizes="100vw"
                 priority
-                className="w-2/3 h-[30px]"
+                className="w-2/3 h-[52px] max-w-[345px]"
               />
               <DrawerClose className="flex-none ml-auto mr-3 p-5">
                 <Image
