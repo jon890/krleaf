@@ -2,7 +2,7 @@ import { FONT_PRETENDARD } from "@/lib/font-util";
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/main/navbar";
-import Footer from "@/components/main/footer";
+import Footer from "@/components/main/Footer";
 
 export const metadata: Metadata = {
   title: "한국지방교육행정연구재단",
