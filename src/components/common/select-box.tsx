@@ -18,11 +18,15 @@ import { cn } from "@/lib/utils";
 import { Check, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
+type Value = { code: string; text: string };
+
 type Props = {
-  values: { code: string; text: string }[];
+  values: Value[];
   emptyText?: string;
   hasSearch?: boolean;
   searchText?: string;
+  onChangeValue?: (value: Value) => void;
+  defaultValue?: string;
 };
 
 export default function SelectBox({
@@ -30,9 +34,13 @@ export default function SelectBox({
   emptyText,
   hasSearch,
   searchText,
+  onChangeValue,
+  defaultValue,
 }: Props) {
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string | undefined>();
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    defaultValue
+  );
 
   return (
     <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
@@ -62,6 +70,7 @@ export default function SelectBox({
                   onSelect={(currentValue) => {
                     setSelectedValue(currentValue);
                     setPopoverOpen(false);
+                    onChangeValue?.(value);
                   }}
                 >
                   <Check

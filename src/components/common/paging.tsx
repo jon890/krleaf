@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Pagination,
   PaginationContent,
@@ -6,6 +8,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { url } from "inspector";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   totalPage: number;
@@ -14,6 +18,8 @@ type Props = {
 };
 
 export default function Paging({ currentPage, totalPage, baseUrl }: Props) {
+  const searchParmas = useSearchParams();
+
   const pageUnit = 10;
   const startPage = Math.floor(currentPage / pageUnit) * pageUnit;
   const pages = Array(10)
@@ -21,19 +27,29 @@ export default function Paging({ currentPage, totalPage, baseUrl }: Props) {
     .map((_, index) => startPage + index + 1)
     .filter((page) => page <= totalPage);
 
+  function getSearchParamsWithoutPage() {
+    const urlSearchParams = new URLSearchParams(searchParmas);
+    urlSearchParams.delete("page");
+    return urlSearchParams.toString();
+  }
+
   return (
     <Pagination>
       <PaginationContent>
         {currentPage > 1 && (
           <PaginationItem>
-            <PaginationPrevious href={`${baseUrl}?page=${currentPage - 1}`} />
+            <PaginationPrevious
+              href={`${baseUrl}?${getSearchParamsWithoutPage()}&page=${
+                currentPage - 1
+              }`}
+            />
           </PaginationItem>
         )}
 
         {pages.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
-              href={`${baseUrl}?page=${page}`}
+              href={`${baseUrl}?${getSearchParamsWithoutPage()}&page=${page}`}
               isActive={page === currentPage ? true : false}
             >
               {page}
@@ -43,7 +59,11 @@ export default function Paging({ currentPage, totalPage, baseUrl }: Props) {
 
         {currentPage < totalPage && (
           <PaginationItem>
-            <PaginationNext href={`${baseUrl}?page=${currentPage + 1}`} />
+            <PaginationNext
+              href={`${baseUrl}?${getSearchParamsWithoutPage()}&page=${
+                currentPage + 1
+              }`}
+            />
           </PaginationItem>
         )}
       </PaginationContent>

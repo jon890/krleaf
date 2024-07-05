@@ -1,8 +1,8 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
+import BoardSearch from "@/components/board/board-search";
 import BoardTab from "@/components/board/board-tab";
 import BoardTitle from "@/components/board/board-title";
 import Paging from "@/components/common/paging";
-import SelectBox from "@/components/common/select-box";
 import {
   Table,
   TableBody,
@@ -11,17 +11,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { BoardSearchTypes } from "@/constants/board-search-type";
-import {
-  getBoardTypeEnum,
-  getCommonBoardTypes,
-  isValidBoardType,
-} from "@/constants/board-type";
+import { getBoardTypeEnum, isValidBoardType } from "@/constants/board-type";
 import { HOVER_CLASSNAME } from "@/lib/classname-util";
 import { yyyymmdd } from "@/lib/time-util";
 import { cn } from "@/lib/utils";
 import { getBoardItems } from "@/prisma/board.db";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 
@@ -31,12 +25,14 @@ type Props = {
   };
   searchParams: {
     page?: string;
+    search_type?: string;
+    keyword?: string;
   };
 };
 
 export default async function BoardListPage({
   params: { board_type },
-  searchParams: { page: _page = "1" },
+  searchParams: { page: _page = "1", search_type, keyword },
 }: Props) {
   const boardType = board_type?.toUpperCase();
   const page = Number(_page);
@@ -56,7 +52,9 @@ export default async function BoardListPage({
 
   const { items, totalItemCount, totalPage } = await getBoardItems(
     boardTypeEnum,
-    page
+    page,
+    search_type,
+    keyword
   );
 
   return (
@@ -69,24 +67,7 @@ export default async function BoardListPage({
 
       <section className={cn("container mt-20 mb-20 px-5")}>
         <BoardTab boardType={boardTypeEnum} />
-
-        {/* 검색 */}
-        <div className="mt-10 bg-[#F7F8FB] w-full rounded-md flex flex-row py-10 justify-center items-center gap-[9px]">
-          <SelectBox values={BoardSearchTypes} />
-          <input
-            type="text"
-            placeholder="검색어를 입력해주세요"
-            className="text-base w-[432px] bg-white rounded-md border border-[#DDDDDD] px-3 py-3 placeholder:text-base"
-          />
-          <button
-            className={cn(
-              "font-bold text-base px-8 py-3 text-white bg-krflea_text_primary rounded-md",
-              HOVER_CLASSNAME
-            )}
-          >
-            검색
-          </button>
-        </div>
+        <BoardSearch />
 
         <div className="mt-16">
           <p className="text-base">

@@ -60,8 +60,29 @@ export async function getBoardItemWithPrevNext(
   };
 }
 
-export async function getBoardItems(boardType: BoardType, page: number) {
+export async function getBoardItems(
+  boardType: BoardType,
+  page: number,
+  searchType?: string,
+  keyword?: string
+) {
   const unit = 10;
+
+  let searchCriteria = {};
+  if (searchType && keyword) {
+    switch (searchType) {
+      case "title":
+        searchCriteria = {
+          title: { contains: keyword },
+        };
+        break;
+      case "content":
+        searchCriteria = {
+          content: { contains: keyword },
+        };
+        break;
+    }
+  }
 
   const boardItems = await prisma.board.findMany({
     select: {
@@ -71,6 +92,7 @@ export async function getBoardItems(boardType: BoardType, page: number) {
     },
     where: {
       boardType: boardType.code,
+      ...searchCriteria,
     },
     skip: (page - 1) * unit,
     take: unit,
@@ -82,6 +104,7 @@ export async function getBoardItems(boardType: BoardType, page: number) {
   const totalItemCount = await prisma.board.count({
     where: {
       boardType: boardType.code,
+      ...searchCriteria,
     },
   });
 
