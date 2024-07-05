@@ -1,3 +1,5 @@
+import { HOVER_CLASSNAME } from "@/lib/classname-util";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function Footer() {
@@ -14,16 +16,37 @@ export default function Footer() {
           />
 
           <div className="grid grid-cols-2 text-white text-base gap-[10px] lg:flex lg:flex-row">
-            <div className="bg-krflea_text_primary rounded-3xl px-5 py-3 text-base text-center">
+            <div
+              className={cn(
+                "bg-krflea_text_primary rounded-3xl px-5 py-3 text-base text-center cursor-pointer",
+                HOVER_CLASSNAME
+              )}
+            >
               개인정보처리방침
             </div>
-            <div className="border rounded-3xl px-5 py-3 border-opacity-30 text-base text-center">
+
+            <div
+              className={cn(
+                "bg-krflea_text_primary rounded-3xl px-5 py-3 text-base text-center cursor-pointer",
+                HOVER_CLASSNAME
+              )}
+            >
               저작권 보호정책
             </div>
-            <div className="border rounded-3xl px-5 py-3 border-opacity-30 text-base text-center">
+            <div
+              className={cn(
+                "bg-krflea_text_primary rounded-3xl px-5 py-3 text-base text-center cursor-pointer",
+                HOVER_CLASSNAME
+              )}
+            >
               이메일 무단수집 거부
             </div>
-            <div className="border rounded-3xl px-5 py-3 border-opacity-30 text-base text-center">
+            <div
+              className={cn(
+                "bg-krflea_text_primary rounded-3xl px-5 py-3 text-base text-center cursor-pointer",
+                HOVER_CLASSNAME
+              )}
+            >
               사이트맵
             </div>
           </div>
