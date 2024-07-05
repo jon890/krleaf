@@ -15,7 +15,7 @@ export default function BoardTab({ boardType }: Props) {
           <li
             key={it.code}
             className={cn(
-              "font-semibold text-xl",
+              "font-semibold lg:text-xl text-lg",
               it.code === boardType.code
                 ? "text-krflea_text_primary underline underline-offset-[16px] decoration-krflea_text_primary decord"
                 : ""

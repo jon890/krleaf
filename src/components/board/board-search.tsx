@@ -40,7 +40,7 @@ export default function BoardSearch() {
   }
 
   return (
-    <div className="mt-10 bg-[#F7F8FB] w-full rounded-md flex flex-row py-10 justify-center items-center gap-[9px]">
+    <div className="mt-10 bg-[#F7F8FB] w-full rounded-md flex flex-row py-10 justify-center items-center gap-[9px] px-4">
       <SelectBox
         values={BoardSearchTypes}
         onChangeValue={onChangeSearchType}
@@ -49,7 +49,7 @@ export default function BoardSearch() {
       <input
         type="text"
         placeholder="검색어를 입력해주세요"
-        className="text-base w-[432px] bg-white rounded-md border border-[#DDDDDD] px-3 py-3 placeholder:text-base"
+        className="text-base flex-1 bg-white rounded-md border border-[#DDDDDD] px-3 py-3 placeholder:text-base"
         ref={inputRef}
         defaultValue={searchParams.get("keyword") ?? ""}
       />
