@@ -23,7 +23,7 @@ export default function BoardBreadcrumb({ breadcrumbs }: Props) {
       <BreadcrumbList className="!gap-1">
         {breadcrumbs.map((bread, index) => (
           <Fragment key={bread.text}>
-            <BreadcrumbItem className="font-semibold text-base text-[#555555]">
+            <BreadcrumbItem className="font-semibold text-sm lg:text-base text-[#555555]">
               {bread.href ? (
                 <BreadcrumbLink href={bread.href}>
                   {bread.text === "홈" ? (

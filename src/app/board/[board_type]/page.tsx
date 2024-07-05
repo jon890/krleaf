@@ -1,4 +1,6 @@
 import BoardBreadcrumb from "@/components/board/board-breadcrumb";
+import BoardTab from "@/components/board/board-tab";
+import BoardTitle from "@/components/board/board-title";
 import Paging from "@/components/common/paging";
 import SelectBox from "@/components/common/select-box";
 import {
@@ -63,40 +65,10 @@ export default async function BoardListPage({
         <BoardBreadcrumb breadcrumbs={boardTypeEnum.breadcrumbs} />
       </section>
 
-      <section className="w-screen mt-5 relative">
-        <Image
-          src="/images/background/bg_notice.png"
-          width={0}
-          height={0}
-          sizes="100vw"
-          alt="bg_notice"
-          className="w-full object-cover"
-        />
-
-        <p className="font-bold text-5xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          {boardTypeEnum.text}
-        </p>
-      </section>
+      <BoardTitle boardType={boardTypeEnum} />
 
       <section className={cn("container mt-20 mb-20 px-5")}>
-        <div className="w-full relative">
-          <ul className="w-full flex flex-row gap-16">
-            {getCommonBoardTypes(boardTypeEnum).map((it) => (
-              <li
-                key={it.code}
-                className={cn(
-                  "font-semibold text-xl",
-                  it.code === boardTypeEnum.code
-                    ? "text-krflea_text_primary underline underline-offset-[16px] decoration-krflea_text_primary decord"
-                    : ""
-                )}
-              >
-                <Link href={it.href}>{it.text}</Link>
-              </li>
-            ))}
-          </ul>
-          <div className="absolute w-full bg-[#E5E5E5] h-[2px] -bottom-[11px] -z-10"></div>
-        </div>
+        <BoardTab boardType={boardTypeEnum} />
 
         {/* 검색 */}
         <div className="mt-10 bg-[#F7F8FB] w-full rounded-md flex flex-row py-10 justify-center items-center gap-[9px]">
